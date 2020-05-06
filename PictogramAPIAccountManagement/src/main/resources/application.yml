@@ -1,0 +1,18 @@
+server:
+  port: ${PORT:0} 
+
+spring:
+  application:
+    name: account-ws
+  devtools:
+    restart:
+      enabled: true
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka 
+  instance:
+    instance-id: ${spring.application.name}:${spring-application.instance-id:${random.value}} #Assign a unique ID to each instance so that they can register independently with Discovery service.
+      
+#Dynamic values can be set to a custom value: -Dspring.boot.run.arguments=--spring-application.instance-id=users-1,server.port=8080  
